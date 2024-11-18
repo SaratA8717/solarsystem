@@ -12,20 +12,14 @@ env:
         MONGO_PASSWORD: ${{secrets.MONGO_PASSWORD}}
 jobs:
     unit-testing:
-        strategy:
-          matrix:
-            nodejs_version: [18, 19, 20]
-            operating_system: [ubuntu-latest, macos-latest]
         name: unit-testing
-        runs-on: ${{matrix.operating_system}}
+        runs-on: ubuntu-latest
+        container: 
+            image: 'node:20'
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4
 
-            - name: Setup NodeJS Version - ${{matrix.nodejs_version}}
-              uses: actions/setup-node@v3
-              with:
-                node-version: ${{matrix.nodejs_version}}
             
             - name: Cache NPM dependencies
               uses: actions/cache@v4
@@ -51,7 +45,7 @@ jobs:
         needs: unit-testing
         steps:
             - uses: actions/checkout@v4
-            
+
             - name: Set lowercase repository owner
               run: echo "REPO_OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
             
