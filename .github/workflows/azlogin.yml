@@ -17,7 +17,7 @@ jobs:
       with:
         azcliversion: latest
         inlineScript: |
-          az group show --name "<YOUR RESOURCE GROUP>"
+          az group show --name "multivm-rg"
           # You can write your Azure CLI inline scripts here.
 
     - name: Azure PowerShell action
@@ -25,5 +25,5 @@ jobs:
       with:
         azPSVersion: latest
         inlineScript: |
-          Get-AzResourceGroup -Name "<YOUR RESOURCE GROUP>"
+          Get-AzResourceGroup -Name "multivm-rg"
           # You can write your Azure PowerShell inline scripts here.
