@@ -1,5 +1,5 @@
 name: Run Azure Login with the Service Principal secret
-name: Az login
+
 on: workflow_dispatch
 
 jobs:
@@ -26,4 +26,4 @@ jobs:
         azPSVersion: latest
         inlineScript: |
           Get-AzResourceGroup -Name "multivm-rg"
-          # You can write your Azure PowerShell inline scripts here.
+          # You can write your Azure PowerShell inline scripts here. login
