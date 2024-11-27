@@ -10,6 +10,9 @@ jobs:
   azure-login:
 
     runs-on: ubuntu-latest  # Using an Ubuntu runner
+    environment: 
+      name: development
+    
  
     steps:
  
