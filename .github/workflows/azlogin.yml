@@ -14,25 +14,17 @@ jobs:
     steps:
  
       - name: Install Azure CLI
-
         run: |
-
           curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
  
       - name: Azure login
-
         uses: azure/login@v1
-
         with:
-
           creds: ${{ secrets.AZURE_CREDENTIALS }}  # Use the secret for credentials
  
       - name: Verify Azure login
-
         run: |
-
           az account show  # Shows details of the current Azure subscription
-
           az vm list --output table  # Lists all VMs in your subscription in a table format
 
  
